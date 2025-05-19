@@ -84,6 +84,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mensaje = "Error al crear la orden: " . $e->getMessage();
             $tipo_mensaje = "error";
         }
+        header('Location: ../public/allie_dashboard.php');
+        exit;
     }
 }
 
