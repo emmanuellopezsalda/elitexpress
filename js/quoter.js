@@ -300,7 +300,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const weightInput = document.getElementById('weight');
     const widthInput = document.getElementById('width');
     const heightInput = document.getElementById('height');
-    const totalInput = document.getElementById('total');
+    const commerciaValueInput = document.getElementById('commercial_value');
+    const total = document.getElementById("total");
 
     // No establecemos un valor predeterminado para el campo valor comercial
     // Lo actualizaremos dinámicamente durante la cotización
@@ -382,7 +383,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const peso = parseFloat(weightInput?.value || '0');
         const ancho = parseFloat(widthInput?.value || '0');
         const alto = parseFloat(heightInput?.value || '0');
-        const valor = parseFloat(totalInput?.value || '0');
+        const valor = parseFloat(commerciaValueInput?.value || '0');
 
         // Validar campos requeridos
         if (!origen || !destino || !peso || !ancho || !alto || !valor) {
@@ -443,7 +444,7 @@ document.addEventListener('DOMContentLoaded', function () {
             minimumFractionDigits: 0,
             maximumFractionDigits: 0
         });
-
+        total.value = costo;
         // Mostrar el resultado
         if (quotationDiv) {
             quotationDiv.innerHTML = `
@@ -456,7 +457,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <p class="quote-result">Costo estimado del envío: <strong>${costoFormateado}</strong></p>
                 ${rutaInvertida ? '<p class="note">Nota: Se ha calculado basado en la ruta inversa.</p>' : ''}
             `;
-
+            
             // Estilos adicionales para el resultado
             const quoteResult = quotationDiv.querySelector('.quote-result');
             if (quoteResult) {
@@ -503,7 +504,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             // Verificar si se ha calculado la cotización y el campo total tiene valor
-            if (!totalInput || !totalInput.value) {
+            if (!commerciaValueInput || !commerciaValueInput.value) {
                 isValid = false;
                 alert('Por favor, calcule la cotización antes de crear el envío.');
             }

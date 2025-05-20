@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $recipient_name = sanitize($_POST['recipient_name']);
     $recipient_address = sanitize($_POST['recipient_address']);
     $recipient_phone = sanitize($_POST['recipient_phone']);
+    $commercial_value = (float)$_POST['commercial_value'];
     $total = (float)$_POST['total'];
     $status = "pendiente";
     
@@ -46,6 +47,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($recipient_phone)) {
         $errors[] = "El teléfono del destinatario es obligatorio";
     }
+    if (empty($commercial_value)) {
+        $errors[] = "El valor comercial es obligatorio";
+    }
     if (empty($total)) {
         $errors[] = "El total es obligatorio";
     }
@@ -56,10 +60,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             $sql = "INSERT INTO orders (
                     seller_id, origin, destination, height, width, weight,
-                    recipient_name, recipient_address, recipient_phone, total, status
+                    recipient_name, recipient_address, recipient_phone, commercial_value, total, status
                 ) VALUES (
                     :seller_id, :origin, :destination, :height, :width, :weight,
-                    :recipient_name, :recipient_address, :recipient_phone, :total, :status
+                    :recipient_name, :recipient_address, :recipient_phone, :commercial_value, :total, :status
                 )";
             
             $stmt = $pdo->prepare($sql);
@@ -73,6 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(':recipient_name', $recipient_name, PDO::PARAM_STR);
             $stmt->bindParam(':recipient_address', $recipient_address, PDO::PARAM_STR);
             $stmt->bindParam(':recipient_phone', $recipient_phone, PDO::PARAM_STR);
+            $stmt->bindParam(':commercial_value', $commercial_value, PDO::PARAM_STR);
             $stmt->bindParam(':total', $total, PDO::PARAM_STR);
             $stmt->bindParam(':status', $status, PDO::PARAM_STR);
             

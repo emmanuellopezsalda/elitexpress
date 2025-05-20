@@ -137,6 +137,7 @@ $orders = $stmt->fetchAll();
                                 <th>Ancho (cm)</th>
                                 <th>Altura(cm)</th>
                                 <th>Valor Comercial</th>
+                                <th>Total</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -150,9 +151,9 @@ $orders = $stmt->fetchAll();
                                     <td><?= htmlspecialchars($order['weight'] ?? 'N/A') ?></td>
                                     <td><?= htmlspecialchars($order['width'] ?? 'N/A') ?></td>
                                     <td><?= htmlspecialchars($order['height'] ?? 'N/A') ?></td>
+                                    <td><?= htmlspecialchars($order['commercial_value'] ?? 'N/A') ?></td>
                                     <td><?= htmlspecialchars($order['total'] ?? 'N/A') ?></td>
                                     <td>
-                                        <button class="btn-view" data-id="<?= $order['id'] ?>">Ver</button>
                                         <button class="btn-edit" data-id="<?= $order['id'] ?>">Editar</button>
                                     </td>
                                 </tr>
@@ -163,6 +164,19 @@ $orders = $stmt->fetchAll();
             </div>
         </section>
     </main>
+    <?php if (isset($_SESSION['error_message'])): ?>
+    <div class="alert alert-danger">
+        <?= $_SESSION['error_message']; ?>
+        <?php unset($_SESSION['error_message']); ?>
+    </div>
+<?php endif; ?>
+
+<?php if (isset($_SESSION['success_message'])): ?>
+    <div class="alert alert-success">
+        <?= $_SESSION['success_message']; ?>
+        <?php unset($_SESSION['success_message']); ?>
+    </div>
+<?php endif; ?>
 </div>
 <div id="envioModal" class="modal">
     <div class="modal-content">
@@ -284,8 +298,9 @@ $orders = $stmt->fetchAll();
             </div>
             <div class="form-group">
                 <label for="total">Valor Comercial:</label>
-                <input type="number" id="total" name="total" step="0.01" min="0" required>
+                <input type="number" id="commercial_value" name="commercial_value" step="0.01" min="0" required>
             </div>
+                <input type="number" id="total" name="total" step="0.01" min="0" hidden>            
             <div class="form-actions">
                 <button type="submit" class="btn-modal-crear submit-btn">Crear Envío</button>
             </div>
