@@ -15,8 +15,10 @@ body {
     padding: 20px;
 }
 
+
 .login-wrapper {
     width: 100%;
+    display: block;
     max-width: 400px;
     background-color: #ffffff;
     color: #1d2b53;
@@ -78,7 +80,15 @@ body {
 .login-btn:hover {
     background-color: #ff6b3e;
 }
-
+.signup-wrapper {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+.p{
+    text-decoration: none;
+}
 .error-message {
     color: #dc2626;
     font-size: 0.9rem;

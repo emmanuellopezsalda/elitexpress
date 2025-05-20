@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Buscar el lugar donde insertar el div de cotización (antes de los botones)
     const buttonsArea = modalEnvioForm?.querySelector('.submit-btn')?.parentNode;
-    
+
     // Agregar el div de cotización ANTES de los botones
     if (buttonsArea && modalEnvioForm) {
         modalEnvioForm.insertBefore(quotationDiv, buttonsArea);
@@ -457,7 +457,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <p class="quote-result">Costo estimado del envío: <strong>${costoFormateado}</strong></p>
                 ${rutaInvertida ? '<p class="note">Nota: Se ha calculado basado en la ruta inversa.</p>' : ''}
             `;
-            
+
             // Estilos adicionales para el resultado
             const quoteResult = quotationDiv.querySelector('.quote-result');
             if (quoteResult) {

@@ -13,12 +13,17 @@
             </div>
             <div class="form-group">
                 <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password"  placeholder="Ingresa tu contraseña" required>
+                <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
             </div>
             <button type="submit" class="login-btn" id="loginBtn">Entrar</button>
-            <p class="error-message" id="errorMessage" style="<?= isset($_GET['error']) ? 'display: block;' : 'display: none;' ?>">
+            <div class="signup-wrapper">
+                <a href="./signup_allie.php" class="p"><p>¿Quieres ser aliado?</p></a>
+            </div>
+            <p class="error-message" id="errorMessage"
+                style="<?= isset($_GET['error']) ? 'display: block;' : 'display: none;' ?>">
                 <?= isset($_GET['error']) ? htmlspecialchars($_GET['error']) : 'Usuario o contraseña incorrectos' ?>
-            </p>        </form>
+            </p>
+        </form>
     </div>
 </div>
 

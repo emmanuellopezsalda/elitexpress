@@ -24,7 +24,7 @@ $orders = $stmt->fetchAll();
                 <li><button id="menuVendedores" class="menu-btn">Vendedores</button></li>
                 <form action="../handlers/logout.php" method="POST" style="display:inline;">
                     <button type="submit">Cerrar sesión</button>
-                </form>                
+                </form>
             </ul>
         </nav>
     </aside>
@@ -132,8 +132,10 @@ $orders = $stmt->fetchAll();
                                 <th>Origen</th>
                                 <th>Destino</th>
                                 <th>Peso (kg)</th>
-                                <th>Dimensiones (cm)</th>
+                                <th>Ancho (cm)</th>
+                                <th>Altura(cm)</th>
                                 <th>Valor Comercial</th>
+                                <th>Total</th>
                                 <!-- <th>Acciones</th> -->
                             </tr>
                         </thead>
@@ -146,7 +148,9 @@ $orders = $stmt->fetchAll();
                                     <td><?= htmlspecialchars($order['origin'] ?? 'N/A') ?></td>
                                     <td><?= htmlspecialchars($order['destination'] ?? 'N/A') ?></td>
                                     <td><?= htmlspecialchars($order['weight'] ?? 'N/A') ?></td>
-                                    <td><?= htmlspecialchars($order['dimensions'] ?? 'N/A') ?></td>
+                                    <td><?= htmlspecialchars($order['width'] ?? 'N/A') ?></td>
+                                    <td><?= htmlspecialchars($order['height'] ?? 'N/A') ?></td>
+                                    <td><?= htmlspecialchars($order['commercial_value'] ?? 'N/A') ?></td>
                                     <td><?= htmlspecialchars($order['total'] ?? 'N/A') ?></td>
                                     <!-- <td>
                                         <button class="btn-view" data-id="<?= $order['id'] ?>">Ver</button>
@@ -260,7 +264,7 @@ $orders = $stmt->fetchAll();
                 <?php if (empty($vendedores)): ?>
                     <p>No hay vendedores registrados aún.</p>
                 <?php else: ?>
-                    <table>                        
+                    <table>
                         <thead>
                             <tr>
                                 <th>ID</th>

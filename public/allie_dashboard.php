@@ -138,7 +138,7 @@ $orders = $stmt->fetchAll();
                                 <th>Altura(cm)</th>
                                 <th>Valor Comercial</th>
                                 <th>Total</th>
-                                <th>Acciones</th>
+                                <!-- <th>Acciones</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -153,9 +153,9 @@ $orders = $stmt->fetchAll();
                                     <td><?= htmlspecialchars($order['height'] ?? 'N/A') ?></td>
                                     <td><?= htmlspecialchars($order['commercial_value'] ?? 'N/A') ?></td>
                                     <td><?= htmlspecialchars($order['total'] ?? 'N/A') ?></td>
-                                    <td>
+                                    <!-- <td>
                                         <button class="btn-edit" data-id="<?= $order['id'] ?>">Editar</button>
-                                    </td>
+                                    </td> -->
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
@@ -165,18 +165,18 @@ $orders = $stmt->fetchAll();
         </section>
     </main>
     <?php if (isset($_SESSION['error_message'])): ?>
-    <div class="alert alert-danger">
-        <?= $_SESSION['error_message']; ?>
-        <?php unset($_SESSION['error_message']); ?>
-    </div>
-<?php endif; ?>
+        <div class="alert alert-danger">
+            <?= $_SESSION['error_message']; ?>
+            <?php unset($_SESSION['error_message']); ?>
+        </div>
+    <?php endif; ?>
 
-<?php if (isset($_SESSION['success_message'])): ?>
-    <div class="alert alert-success">
-        <?= $_SESSION['success_message']; ?>
-        <?php unset($_SESSION['success_message']); ?>
-    </div>
-<?php endif; ?>
+    <?php if (isset($_SESSION['success_message'])): ?>
+        <div class="alert alert-success">
+            <?= $_SESSION['success_message']; ?>
+            <?php unset($_SESSION['success_message']); ?>
+        </div>
+    <?php endif; ?>
 </div>
 <div id="envioModal" class="modal">
     <div class="modal-content">
@@ -300,7 +300,7 @@ $orders = $stmt->fetchAll();
                 <label for="total">Valor Comercial:</label>
                 <input type="number" id="commercial_value" name="commercial_value" step="0.01" min="0" required>
             </div>
-                <input type="number" id="total" name="total" step="0.01" min="0" hidden>            
+            <input type="number" id="total" name="total" step="0.01" min="0" hidden>
             <div class="form-actions">
                 <button type="submit" class="btn-modal-crear submit-btn">Crear Envío</button>
             </div>
