@@ -28,7 +28,7 @@ if ($allie && password_verify($password, $allie['password'])) {
     $_SESSION['usuario_id'] = $allie['id'];
     $_SESSION['aliado'] = $allie['name'];
 
-    header('Location: ../public/allie_dashboard.php');
+    header('Location: ../public/allies.php');
     exit;
 }
 
