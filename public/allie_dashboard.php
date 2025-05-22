@@ -302,7 +302,7 @@ $orders = $stmt->fetchAll();
             </div>
             <input type="number" id="total" name="total" step="0.01" min="0" hidden>
             <div class="form-actions">
-                <button type="submit" class="btn-modal-crear submit-btn">Crear Envío</button>
+                <button type="submit" class="btn-modal-crear submit-btn">Solicitar Recogida</button>
             </div>
         </form>
     </div>

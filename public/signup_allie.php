@@ -32,6 +32,9 @@
                 <input type="number" id="modalEditContact" name="contact" required>
             </div>
             <button type="submit" class="login-btn" id="loginBtn">Entrar</button>
+            <div class="signup-wrapper">
+                <a href="./index.php" class="p"><p>¿Ya tienes una cuenta?</p></a>
+            </div>
             <p class="error-message" id="errorMessage"
                 style="<?= isset($_GET['error']) ? 'display: block;' : 'display: none;' ?>">
                 <?= isset($_GET['error']) ? htmlspecialchars($_GET['error']) : 'Usuario o contraseña incorrectos' ?>

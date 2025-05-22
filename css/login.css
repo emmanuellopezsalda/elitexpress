@@ -3,21 +3,20 @@
     margin: 0;
     padding: 0;
 }
-
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #1F345E;
     color: #ffffff;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
     padding: 20px;
+    overflow-y: auto; 
 }
-
 
 .login-wrapper {
     width: 100%;
+    height: auto;
     display: block;
     max-width: 400px;
     background-color: #ffffff;
@@ -89,13 +88,53 @@ body {
 .p{
     text-decoration: none;
 }
+.p:active {
+    color: black;
+}
+.p:visited {
+    color: black;
+}
 .error-message {
     color: #dc2626;
     font-size: 0.9rem;
     margin-top: 12px;
     display: none;
 }
+/* Añadir estos estilos a tu archivo ../css/login.css */
 
+/* Estilos para la página de verificación */
+.verification-code input {
+    text-align: center;
+    letter-spacing: 0.5em;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.resend-code {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.resend-code a {
+    color: #164B60;
+    text-decoration: underline;
+}
+
+.resend-code a:hover {
+    color: #427D9D;
+}
+
+/* Mensaje informativo */
+.info-message {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    display: none;
+}
 @media (max-width: 480px) {
     .login-wrapper {
         padding: 20px;
