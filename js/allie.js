@@ -6,6 +6,7 @@ const widthInput = document.getElementById("width");
 const lengthInput = document.getElementById("length");
 const commerciaValueInput = document.getElementById("valor-declarado");
 const quotationDiv = document.querySelector(".quote-result");
+const total = document.getElementById("total");
 const costos = {
     'Bogotá': {
         'Medellín': {
@@ -267,7 +268,6 @@ function calcularCotizacion() {
     const alto = parseFloat(heightInput?.value || '0');
     const largo = parseFloat(lengthInput?.value || '0');
     const valor = parseFloat(commerciaValueInput?.value || '0');
-    const total = document.getElementById("total");
 
 
     if (!origen || !destino || !peso || !ancho || !alto || !largo || !valor) {
@@ -364,15 +364,15 @@ function irARecogida() {
     let event = { currentTarget: document.getElementsByClassName("tab-button")[1] };
     openTab(event, "recogida");
 
-    document.getElementById("envio-tipo").value = document.getElementById("tipo-envio").value;
     document.getElementById("envio-valor").value = document.getElementById("valor-declarado").value;
-    document.getElementById("envio-peso").value = document.getElementById("peso").value;
-    document.getElementById("envio-alto").value = document.getElementById("alto").value;
-    document.getElementById("envio-ancho").value = document.getElementById("ancho").value;
-    document.getElementById("envio-largo").value = document.getElementById("largo").value;
+    document.getElementById("envio-peso").value = document.getElementById("weight").value;
+    document.getElementById("envio-alto").value = document.getElementById("height").value;
+    document.getElementById("envio-ancho").value = document.getElementById("width").value;
+    document.getElementById("envio-largo").value = document.getElementById("length").value;
+    document.getElementById("envio-total").value = total.value;
 
-    document.getElementById("remitente-ciudad").value = document.getElementById("origen").value;
-    document.getElementById("destinatario-ciudad").value = document.getElementById("destino").value;
+    document.getElementById("envio-origen").value = document.getElementById("origin").value;
+    document.getElementById("envio-destino").value = document.getElementById("destination").value;
 }
 
 function cambiarTipoCliente() {
